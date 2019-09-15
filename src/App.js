@@ -1,27 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Link, Route } from 'react-router-dom';
 import './App.css';
-import Nome from './Nome';
-import User from './User';
-import foto from './user.png';
+import routesConfig from './routesConfig';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Meu primeiro app React
-        </p>
-        {/* Um componente pode não conter nenhuma propriedade a ser passada */}
-        <Nome nome="miolivc"></Nome>
+	return (
+		<div>
+			<div className="App">
+				<Link to="/">Home</Link>
+				<Link to="/user">User</Link>
+			</div>
 
-        <User nome="miolivc"></User>
-        <User nome="miolivc" foto={foto}></User>
-        <User></User>
-      </header>
-    </div>
-  );
+			{routesConfig.map((route) => {
+				return <Route
+					key={route.path}
+					path={route.path}
+					component={route.component}></Route>
+			})}
+		</div>
+	);
 }
 
 export default App;

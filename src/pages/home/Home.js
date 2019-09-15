@@ -1,10 +1,12 @@
-import react from 'react';
+import React from 'react';
 
-function Home() {
+class Home extends React.Component {
 
-    return (
-        <p>Página Inicial</p>
-    );
+    render() {
+        return (
+            <p>Página Inicial</p>
+        );
+    }
 
 }
 
