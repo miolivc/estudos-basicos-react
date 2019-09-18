@@ -1,4 +1,5 @@
 import React from 'react';
+import UserForm from './UserForm';
 
 class User extends React.Component {
 
@@ -16,6 +17,7 @@ class User extends React.Component {
 
         return (
             <div>
+                <UserForm></UserForm>
                 <table>
                     <tr>
                         <th>nome</th>
