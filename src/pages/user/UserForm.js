@@ -1,15 +1,25 @@
-import { reduxForm } from 'redux-form';
+import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
+import { submitUserAction } from '../../actions/user/UserAction';
 import React from 'react';
 
 const UserFormFunc = props => {
+
+    const { handleSubmit } = props;
+
+    const submit = (data, submitUserAction) => submitUserAction(data)
+
     return (
-        <form>
-            <label for="name">Nome: </label>
-            <input type="text" component="input" name="name" />
+        <form onSubmit={handleSubmit((fields) => submit(fields, submitUserAction))}>
+            <label>Nome: </label>
+            <Field type="text" component="input" name="name" />
             <br />
-            <label for="email">E-mail: </label>
-            <input type="text" component="input" name="email" />
+
+            <label>E-mail: </label>
+            <Field type="text" component="input" name="email" />
+            <br />
+
+            <button type="submit">Submit</button>
         </form>
     );
 }
@@ -22,4 +32,4 @@ const mapStateToProps = state => ({
 
 })
 
-export default connect(mapStateToProps)(UserForm);
+export default connect(mapStateToProps, {submitUserAction})(UserForm);

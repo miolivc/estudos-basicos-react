@@ -19,16 +19,20 @@ class User extends React.Component {
             <div>
                 <UserForm></UserForm>
                 <table>
-                    <tr>
-                        <th>nome</th>
-                        <th>email</th>
-                    </tr>
-                    {list.map((item) => {
-                        return <tr>
-                            <td>{item.name}</td>
-                            <td>{item.email}</td>
+                    <thead>
+                        <tr>
+                            <th>nome</th>
+                            <th>email</th>
                         </tr>
-                    })}
+                    </thead>
+                    <tbody>
+                        {list.map((item) => {
+                            return <tr>
+                                <td>{item.name}</td>
+                                <td>{item.email}</td>
+                            </tr>
+                        })}
+                    </tbody>
                 </table>
             </div>
         );
